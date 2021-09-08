@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Validated Login Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="layer" id="login"></div>
+	<div class="container" onmouseenter="blurBG()" onmouseleave="blurBG()">
+		<h1 class="label">User Login</h1>
+		<label for="label"></label><br>
+		<form class="login_form" action="home.html" method="post" name="form" onsubmit="return validated()">
+			<div class="inputbox" >
+
+			<div class="font">Email</div>
+		</div>
+			<input class="inputbox" autocomplete="off"  type="text" name="email" tabindex="1" placeholder="example@email.com">
+		    
+			<div id="email_error">Please fill up your Email or Phone</div>
+			<div class="font font2">Password</div>
+			<input type="password" class="inputbox" name="password" tabindex="2" placeholder="password">
+			<div id="pass_error">Please fill up your Password<br> your password must be longer than 6 characters</div>
+			
+			
+			<button class="bttn" type="submit"  tabindex="3" data-tooltip="click here to login">Login</button>
+
+			 
+		</form>
+	</div>	
+	<script src="valid.js"></script>
+</body>
+</html>
+
+<!-- dev comments 
+
+bijna alles is gelukt voor mij uit de eisen, waar ik zelf mee vast zat was de tooltips 
+en responsiveness van de achter grond en op kleinste telefoon grooten
+
+ik zou zelf dit anders aan hebben gepakt omdat ik met veel fouten te lang aan het puzzelen was 
+
+
+-->
