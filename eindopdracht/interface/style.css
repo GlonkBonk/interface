@@ -1,0 +1,13 @@
+#ball {
+    
+    background-color: rgb(32, 72, 251);
+    border-color: rgba(96, 255, 255, 0.466);
+    border-radius: 50%;
+    border-width: 6px;
+    border-style: solid;
+    text-align: center;
+    padding: 80px;
+    margin: auto;
+    max-width: 80px;
+   
+  }
