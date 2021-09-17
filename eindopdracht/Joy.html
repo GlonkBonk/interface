@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Joy</title>
+
+	<meta name="description" content="">
+
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.row {
+			display: inline-flex;
+			clear: both;
+		}
+
+		.columnLateral {
+			float: left;
+			width: 15%;
+			min-width: 300px;
+		}
+
+		.columnCetral {
+			float: left;
+			width: 70%;
+			min-width: 300px;
+		}
+
+		#joy2Div {
+			width: 200px;
+			height: 200px;
+			margin: 50px
+		}
+	</style>
+	<script src="./Joy_files/joy.js.download"></script>
+</head>
+
+
+</div>
+<!-- Example of two JoyStick integrated in the page structure -->
+
+<div class="columnLateral">
+	this is a joystick ↓
+	<div id="joy1Div" style="width:200px;height:200px;margin:50px"></div>
+
+	Direction:<input id="joy1Direction" type="text" onchange=log()><br>
+
+</div>
+<div class="columnCetral">
+	<br />
+	
+
+</div>
+change the colour of the ball with this switch<br>
+<label class="switch">
+
+	<input class="bttn" id="slide1" type="checkbox" onchange="sliderlog();">
+	<span class="slider round"></span>
+</label>
+
+<form action="" id="form" onsubmit="sConsole(event)">
+	<br><br>
+
+	<label for="bname"> </label>
+
+	<input type="text" name="bname" id="bname" placeholder="give your ball a name"> <br> <br>
+
+	<input type="submit" value="Submit">
+
+
+</form>
+<script type="text/javascript">
+	// Create JoyStick object into the DIV 'joy1Div'
+	var Joy1 = new JoyStick('joy1Div');
+
+
+	var joy1Direction = document.getElementById("joy1Direction");
+
+
+	setInterval(function () {
+		joy1Direction.value = Joy1.GetDir();
+		console.log(document.getElementById('joy1Direction').value);
+		fetch('joyStatusupdate.php?joy1Direction=' + document.getElementById('joy1Direction').value);
+	}, 500);
+
+
+
+	var open = false;
+
+	function sliderlog() {
+		if (open == false) {
+			open = true;
+			console.log(open);
+			fetch('sliderStatusupdate.php?sliderstatus=' + open);
+	
+		} else {
+			open = false;
+			console.log(open);
+			fetch('sliderStatusupdate.php?sliderstatus=' + open);
+		}
+
+	}
+	function sConsole(event) {
+		event.preventDefault();
+		var data = document.getElementById("bname");
+		console.log(data.value);
+		fetch('bnameStatusupdate.php?bnamestatus=' + data.value);
+	}
+
+
+
+</script>
